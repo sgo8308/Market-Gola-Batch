@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.S3ProductNameRepository">
+  <select id="selectKeys" resultType="java.lang.String">
+    SELECT DISTINCT key
+    FROM "market_gola"."product_report"
+  </select>
+</mapper>
