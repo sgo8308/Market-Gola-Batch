@@ -2,15 +2,15 @@ package org.example;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
+import com.amazonaws.services.lambda.runtime.events.ScheduledEvent;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-public class LambdaApplication implements RequestHandler<Map<String, String>, Void> {
+public class LambdaApplication implements RequestHandler<ScheduledEvent, Void> {
 
     @Override
-    public Void handleRequest(Map<String, String> input, Context context) {
+    public Void handleRequest(ScheduledEvent event, Context context) {
         S3ProductNameService s3ProductNameService = new S3ProductNameService();
 
         List<String> imageNamesInS3 = s3ProductNameService.getAllImageNames();
